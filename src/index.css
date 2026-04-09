@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-surface: #131313;
+  --color-surface-container: #1f1f1f;
+  --color-surface-container-low: #1b1b1b;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #353535;
+  
+  --color-primary: #8fcdff;
+  --color-primary-container: #0cafff;
+  --color-on-primary-container: #001e30;
+  
+  --color-on-surface: #e2e2e2;
+  --color-on-surface-variant: #bdc8d3;
+  --color-outline: #88929c;
+  --color-outline-variant: #3e4851;
+  --color-tertiary: #ffb86c;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-surface text-on-surface font-sans selection:bg-primary-container/25 selection:text-white overflow-x-hidden;
+  }
+}
+
+/* Lume Glow FX */
+.lume-glow-hero {
+  background: radial-gradient(ellipse 70% 60% at 0% 40%, rgba(12,175,255,0.07) 0%, transparent 70%),
+              radial-gradient(ellipse 50% 40% at 100% 10%, rgba(143,205,255,0.04) 0%, transparent 60%);
+}
+.lume-glow-card {
+  background: radial-gradient(circle at 0% 0%, rgba(12,175,255,0.10) 0%, transparent 55%);
+}
+
+/* Glass nav */
+.glass-nav {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(19,19,19,0.65);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #8fcdff 0%, #0cafff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient button */
+.btn-primary {
+  background: linear-gradient(135deg, #0cafff 0%, #006494 100%);
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 0 rgba(12,175,255,0);
+}
+.btn-primary:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 40px rgba(12,175,255,0.25);
+}
+
+/* Ghost button */
+.btn-ghost {
+  border: 1px solid rgba(62,72,81,0.6);
+  color: #e2e2e2;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.btn-ghost:hover {
+  background: #1b1b1b;
+  border-color: rgba(143,205,255,0.25);
+}
+
+/* Ambient glow shadow for floating elements */
+.ambient-glow {
+  box-shadow: 0 0 40px rgba(143,205,255,0.04);
+}
+
+/* Nav link underline */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: #8fcdff;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+/* Project card hover */
+.project-card { transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.project-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(12,175,255,0.08); }
+
+/* Experience row */
+.exp-row { border-left: 3px solid #3e4851; transition: border-color 0.3s ease, background 0.3s ease; }
+.exp-row:hover { border-left-color: #0cafff; background: #1b1b1b; }
+.exp-row.active { border-left-color: #0cafff; }
+
+/* Skill tag */
+.skill-tag { transition: background 0.25s ease, color 0.25s ease; }
+.skill-tag:hover { background: rgba(12,175,255,0.15); color: #8fcdff; }
+
+/* Contact email link */
+.contact-email {
+  position: relative;
+  display: inline-block;
+  color: #0cafff;
+}
+.contact-email::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(135deg, #0cafff 0%, #8fcdff 100%);
+  transform: scaleX(0.3);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.contact-email:hover::after { transform: scaleX(1); }
+
+/* Ghost border for cards */
+.ghost-border { border: 1px solid rgba(62,72,81,0.25); }
+
+/* Icon button */
+.icon-btn { transition: color 0.25s ease, transform 0.25s ease; }
+.icon-btn:hover { color: #8fcdff; transform: translateY(-3px); }
+
+/* Stat block */
+.stat-glow { box-shadow: inset 0 0 30px rgba(12,175,255,0.05); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #131313; }
+::-webkit-scrollbar-thumb { background: #3e4851; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #8fcdff; }
+
